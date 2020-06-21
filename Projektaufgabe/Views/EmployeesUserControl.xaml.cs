@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Projektaufgabe
+namespace Projektaufgabe.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EmployeesUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EmployeesUserControl : UserControl
     {
-        public MainWindow()
+        public EmployeesUserControl()
         {
             InitializeComponent();
         }

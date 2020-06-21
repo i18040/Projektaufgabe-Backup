@@ -1,0 +1,121 @@
+﻿<Window x:Class="Projektaufgabe.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:views="clr-namespace:Projektaufgabe.Views"
+        mc:Ignorable="d"
+        Title="Fleet Management" Height="720" Width="960"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+        <views:SubmoduleSelector x:Key="TemplateSelector" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Margin="45,10,45,10" BorderThickness="1" BorderBrush="Black">
+                <Image Source="../res/logo.jpg" Margin="5"></Image>
+            </Border>
+            <Grid Grid.Column="1" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Button Background="DodgerBlue" Grid.Column="0" Grid.Row="1" Margin="10,0,10,0"
+                        Command="{Binding NewItemCommand}">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <Image Margin="2" Width="15" Source="../res/file.png"></Image>
+                        <TextBlock Foreground="White" Text="Neu"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Background="DodgerBlue" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0" Command="{Binding SaveItemCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="2" Width="15" Source="../res/save.png"></Image>
+                        <TextBlock Foreground="White" Text="Speichern"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Background="DodgerBlue" Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" Command="{Binding DeleteItemCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="2" Width="15" Source="../res/trash-can.png"></Image>
+                        <TextBlock Foreground="White" Text="Löschen"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Grid>
+        <StackPanel Grid.Row="1" Background="DodgerBlue" Margin="10,0,10,0"></StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Button Foreground="{Binding StartCurrentForeColor}" Background="{Binding StartCurrentBackColor}" Grid.Row="0" BorderThickness="0" Content="Start" HorizontalContentAlignment="Left" Command="{Binding StartCommand}" Height="Auto"></Button>
+                    <Button Foreground="{Binding CostMonthCurrentForeColor}" Background="{Binding CostMonthCurrentBackColor}" Grid.Row="1" BorderThickness="0" Content="Kosten/Monat" HorizontalContentAlignment="Left" Command="{Binding CostMonthCommand}" Height="Auto"/>
+                    <Button Foreground="{Binding CostBusinessUnitCurrentForeColor}" Background="{Binding CostBusinessUnitCurrentBackColor}" BorderThickness="0" Grid.Row="2" Content="Kosten/Geschäftsbereich" HorizontalContentAlignment="Left" Command="{Binding CostUnitCommand}" Height="Auto"/>
+                    <Button Foreground="{Binding VehiclesCurrentForeColor}" Background="{Binding VehiclesCurrentBackColor}" Grid.Row="3" BorderThickness="0" Content="Fahrzeuge" HorizontalContentAlignment="Left" Command="{Binding VehiclesCommand}" Height="Auto"/>
+                    <Button Foreground="{Binding EmployeeCurrentForeColor}" Background="{Binding EmployeeCurrentBackColor}" Grid.Row="4" BorderThickness="0" Content="Mitarbeiter" HorizontalContentAlignment="Left" Command="{Binding EmployeesCommand}" Height="Auto"/>
+                    <Button Foreground="{Binding BusinessUnitCurrentForeColor}" Background="{Binding BusinessUnitCurrentBackColor}" Grid.Row="5" BorderThickness="0" Content="Geschäftsbereiche" HorizontalContentAlignment="Left" Command="{Binding UnitsCommand}" Height="Auto"/>
+                </Grid>
+                <StackPanel Grid.Row="1" Background="LightGray">
+                    <TextBlock HorizontalAlignment="Center" Margin="8" FontSize="18" FontWeight="Bold">Administration</TextBlock>
+                </StackPanel>
+                <Grid Visibility="{Binding Visibility}" Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Button Foreground="{Binding UserCurrentForeColor}" Background="{Binding UserCurrentBackColor}" IsEnabled="{Binding CurrentUser.isAdmin}" Grid.Row="0" BorderThickness="0" Content="Benutzer" HorizontalContentAlignment="Left" Command="{Binding UsersCommand}" Height="Auto"/>
+                </Grid>
+            </Grid>
+            <ContentControl Grid.Column="1" Content="{Binding ActiveViewModel}"
+                            ContentTemplateSelector="{StaticResource TemplateSelector}">
+                <ContentControl.Resources>
+                    <DataTemplate x:Key="startViewTemplate">
+                        <views:StartUserControl />
+                    </DataTemplate>
+                    <DataTemplate x:Key="vehiclesViewTemplate">
+                        <views:VehiclesUserControl />
+                    </DataTemplate>
+                    <DataTemplate x:Key="employeesViewTemplate">
+                        <views:EmployeesUserControl />
+                    </DataTemplate>
+                    <DataTemplate x:Key="unitsViewTemplate">
+                        <views:UnitsUserControl />
+                    </DataTemplate>
+                    <DataTemplate x:Key="usersViewTemplate">
+                        <views:UsersUserControl />
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
+    </Grid>
+</Window>

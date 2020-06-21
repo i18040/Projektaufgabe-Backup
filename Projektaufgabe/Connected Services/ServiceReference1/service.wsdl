@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBusinessUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBusinessUnits" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBusinessUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBusinessUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetVehicles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicles" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetVehicles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehiclesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetEmployeesForVehicleTab_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesForVehicleTab" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetEmployeesForVehicleTab_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesForVehicleTabResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetEmployeesForNewVehicleRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesForNewVehicleRelation" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetEmployeesForNewVehicleRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesForNewVehicleRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMonthlyCosts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCosts" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMonthlyCosts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCostsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewBusinessUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewBusinessUnit" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewBusinessUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewBusinessUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteBusinessUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBusinessUnit" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteBusinessUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBusinessUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateBusinessUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBusinessUnit" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateBusinessUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBusinessUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewVehicle2EmployeeRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewVehicle2EmployeeRelation" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewVehicle2EmployeeRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewVehicle2EmployeeRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteVehicle2EmployeeRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicle2EmployeeRelation" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteVehicle2EmployeeRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicle2EmployeeRelationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoginUser" message="tns:IService_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginUserResponse" message="tns:IService_LoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUsers" message="tns:IService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUsersResponse" message="tns:IService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessUnits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBusinessUnits" message="tns:IService_GetBusinessUnits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBusinessUnitsResponse" message="tns:IService_GetBusinessUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetEmployees" message="tns:IService_GetEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetEmployeesResponse" message="tns:IService_GetEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetVehicles" message="tns:IService_GetVehicles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetVehiclesResponse" message="tns:IService_GetVehicles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesForVehicleTab">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetEmployeesForVehicleTab" message="tns:IService_GetEmployeesForVehicleTab_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetEmployeesForVehicleTabResponse" message="tns:IService_GetEmployeesForVehicleTab_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesForNewVehicleRelation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetEmployeesForNewVehicleRelation" message="tns:IService_GetEmployeesForNewVehicleRelation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetEmployeesForNewVehicleRelationResponse" message="tns:IService_GetEmployeesForNewVehicleRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCosts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetMonthlyCosts" message="tns:IService_GetMonthlyCosts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetMonthlyCostsResponse" message="tns:IService_GetMonthlyCosts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ChangePassword" message="tns:IService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ChangePasswordResponse" message="tns:IService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/NewUser" message="tns:IService_NewUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/NewUserResponse" message="tns:IService_NewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteUser" message="tns:IService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteUserResponse" message="tns:IService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUser" message="tns:IService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateUserResponse" message="tns:IService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewBusinessUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/NewBusinessUnit" message="tns:IService_NewBusinessUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/NewBusinessUnitResponse" message="tns:IService_NewBusinessUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBusinessUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteBusinessUnit" message="tns:IService_DeleteBusinessUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteBusinessUnitResponse" message="tns:IService_DeleteBusinessUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBusinessUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateBusinessUnit" message="tns:IService_UpdateBusinessUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateBusinessUnitResponse" message="tns:IService_UpdateBusinessUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/NewEmployee" message="tns:IService_NewEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/NewEmployeeResponse" message="tns:IService_NewEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteEmployee" message="tns:IService_DeleteEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteEmployeeResponse" message="tns:IService_DeleteEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateEmployee" message="tns:IService_UpdateEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateEmployeeResponse" message="tns:IService_UpdateEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/NewVehicle" message="tns:IService_NewVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/NewVehicleResponse" message="tns:IService_NewVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteVehicle" message="tns:IService_DeleteVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteVehicleResponse" message="tns:IService_DeleteVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateVehicle" message="tns:IService_UpdateVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateVehicleResponse" message="tns:IService_UpdateVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewVehicle2EmployeeRelation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/NewVehicle2EmployeeRelation" message="tns:IService_NewVehicle2EmployeeRelation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/NewVehicle2EmployeeRelationResponse" message="tns:IService_NewVehicle2EmployeeRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle2EmployeeRelation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteVehicle2EmployeeRelation" message="tns:IService_DeleteVehicle2EmployeeRelation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteVehicle2EmployeeRelationResponse" message="tns:IService_DeleteVehicle2EmployeeRelation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/IService/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessUnits">
+      <soap:operation soapAction="http://tempuri.org/IService/GetBusinessUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <soap:operation soapAction="http://tempuri.org/IService/GetEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicles">
+      <soap:operation soapAction="http://tempuri.org/IService/GetVehicles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesForVehicleTab">
+      <soap:operation soapAction="http://tempuri.org/IService/GetEmployeesForVehicleTab" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeesForNewVehicleRelation">
+      <soap:operation soapAction="http://tempuri.org/IService/GetEmployeesForNewVehicleRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCosts">
+      <soap:operation soapAction="http://tempuri.org/IService/GetMonthlyCosts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewUser">
+      <soap:operation soapAction="http://tempuri.org/IService/NewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewBusinessUnit">
+      <soap:operation soapAction="http://tempuri.org/IService/NewBusinessUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBusinessUnit">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteBusinessUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBusinessUnit">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateBusinessUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewEmployee">
+      <soap:operation soapAction="http://tempuri.org/IService/NewEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewVehicle">
+      <soap:operation soapAction="http://tempuri.org/IService/NewVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicle">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewVehicle2EmployeeRelation">
+      <soap:operation soapAction="http://tempuri.org/IService/NewVehicle2EmployeeRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicle2EmployeeRelation">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteVehicle2EmployeeRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Projektaufgabe_WCF/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

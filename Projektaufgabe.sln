@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projektaufgabe Client", "Projektaufgabe\Projektaufgabe Client.csproj", "{03000249-F0A0-4D4F-8057-F7F61183780A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82E142EF-8138-416D-BA27-70AFE851410A} = {82E142EF-8138-416D-BA27-70AFE851410A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projektaufgabe WCF", "Projektaufgabe WCF\Projektaufgabe WCF.csproj", "{82E142EF-8138-416D-BA27-70AFE851410A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{03000249-F0A0-4D4F-8057-F7F61183780A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03000249-F0A0-4D4F-8057-F7F61183780A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03000249-F0A0-4D4F-8057-F7F61183780A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E142EF-8138-416D-BA27-70AFE851410A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E142EF-8138-416D-BA27-70AFE851410A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E142EF-8138-416D-BA27-70AFE851410A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E142EF-8138-416D-BA27-70AFE851410A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

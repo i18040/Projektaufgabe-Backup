@@ -1,0 +1,32 @@
+﻿<Window x:Class="Projektaufgabe.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projektaufgabe.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="720" Width="960">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="12" Margin="0,50,0,50" Grid.Column="1">
+            <StackPanel>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="137,50,137,0">
+                    <Image Source="../res/logo.jpg" Height="100" HorizontalAlignment="Center" Margin="5"/>
+                </Border>
+                <StackPanel Background="DodgerBlue" Height="15" Margin="10,40,10,0"></StackPanel>
+                <TextBox HorizontalAlignment="Center" Height="23" Margin="10,40,0,0" TextWrapping="Wrap" Text="{Binding Username}"
+                         VerticalAlignment="Top" Width="200" materialDesign:HintAssist.Hint="Benutzername" materialDesign:HintAssist.Foreground="DodgerBlue"/>
+                <TextBox HorizontalAlignment="Center" Height="23" Margin="10,25,0,0" TextWrapping="Wrap" Text="{Binding Password}"
+                         VerticalAlignment="Top" Width="200" materialDesign:HintAssist.Hint="Passwort" materialDesign:HintAssist.Foreground="DodgerBlue"/>
+                <TextBlock Foreground="Red" Margin="10,25,0,0" Text="{Binding Error}"></TextBlock>
+                <Button Content="Anmelden" Command="{Binding LoginCommand}" HorizontalAlignment="Center" Margin="10,40,0,0"
+                        VerticalAlignment="Top" Width="210" Height="30" Background="DodgerBlue"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
