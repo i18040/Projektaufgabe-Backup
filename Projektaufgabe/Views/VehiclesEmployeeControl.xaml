@@ -30,8 +30,8 @@
         </Grid>
         <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding EmployeesOfVehicle}" SelectedItem="{Binding SelectedEmployee}" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ScrollViewer.CanContentScroll="False">>
-            <ListView.Resources>
-                <GridView x:Key="one">
+            <ListView>
+                <GridView>
                     <GridViewColumn Header="Mitarbeiter">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -54,7 +54,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
-            </ListView.Resources>
+            </ListView>
         </ListView>
     </Grid>
 </UserControl>

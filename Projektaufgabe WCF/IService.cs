@@ -33,6 +33,9 @@ namespace Projektaufgabe_WCF
         List<MonthlyCost> GetMonthlyCosts();
 
         [OperationContract]
+        List<MonthlyBusinessUnitCost> GetMonthlyBusinessUnitCosts();
+
+        [OperationContract]
         bool ChangePassword(string username, string oldPassword, string newPassword);
 
         [OperationContract]
@@ -81,6 +84,5 @@ namespace Projektaufgabe_WCF
         [OperationContract]
         bool DeleteVehicle2EmployeeRelation(string licensePlate, int employeeId);
 
-        // TODO: Add your service operations here
     }
 }

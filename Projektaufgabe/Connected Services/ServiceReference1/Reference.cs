@@ -811,6 +811,83 @@ namespace Projektaufgabe.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MonthlyBusinessUnitCost", Namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF")]
+    [System.SerializableAttribute()]
+    public partial class MonthlyBusinessUnitCost : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusinessUnitNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal CostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime MonthField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusinessUnitName {
+            get {
+                return this.BusinessUnitNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusinessUnitNameField, value) != true)) {
+                    this.BusinessUnitNameField = value;
+                    this.RaisePropertyChanged("BusinessUnitName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Month {
+            get {
+                return this.MonthField;
+            }
+            set {
+                if ((this.MonthField.Equals(value) != true)) {
+                    this.MonthField = value;
+                    this.RaisePropertyChanged("Month");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService")]
     public interface IService {
@@ -862,6 +939,12 @@ namespace Projektaufgabe.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMonthlyCosts", ReplyAction="http://tempuri.org/IService/GetMonthlyCostsResponse")]
         System.Threading.Tasks.Task<Projektaufgabe.ServiceReference1.MonthlyCost[]> GetMonthlyCostsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMonthlyBusinessUnitCosts", ReplyAction="http://tempuri.org/IService/GetMonthlyBusinessUnitCostsResponse")]
+        Projektaufgabe.ServiceReference1.MonthlyBusinessUnitCost[] GetMonthlyBusinessUnitCosts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMonthlyBusinessUnitCosts", ReplyAction="http://tempuri.org/IService/GetMonthlyBusinessUnitCostsResponse")]
+        System.Threading.Tasks.Task<Projektaufgabe.ServiceReference1.MonthlyBusinessUnitCost[]> GetMonthlyBusinessUnitCostsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ChangePassword", ReplyAction="http://tempuri.org/IService/ChangePasswordResponse")]
         bool ChangePassword(string username, string oldPassword, string newPassword);
@@ -1043,6 +1126,14 @@ namespace Projektaufgabe.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Projektaufgabe.ServiceReference1.MonthlyCost[]> GetMonthlyCostsAsync() {
             return base.Channel.GetMonthlyCostsAsync();
+        }
+        
+        public Projektaufgabe.ServiceReference1.MonthlyBusinessUnitCost[] GetMonthlyBusinessUnitCosts() {
+            return base.Channel.GetMonthlyBusinessUnitCosts();
+        }
+        
+        public System.Threading.Tasks.Task<Projektaufgabe.ServiceReference1.MonthlyBusinessUnitCost[]> GetMonthlyBusinessUnitCostsAsync() {
+            return base.Channel.GetMonthlyBusinessUnitCostsAsync();
         }
         
         public bool ChangePassword(string username, string oldPassword, string newPassword) {

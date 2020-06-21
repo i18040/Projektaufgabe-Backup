@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Projektaufgabe_WCF.Interfaces;
 
 namespace Projektaufgabe_WCF.Framework
 {
-    public class Repository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         public Repository(string databaseFile) => NHibernateHelper.DatabaseFile = databaseFile;
 
@@ -15,39 +17,64 @@ namespace Projektaufgabe_WCF.Framework
             }
         }
 
-        public void Delete(T entity)
+        public bool Delete(T entity)
         {
-            using (var session = NHibernateHelper.OpenSession())
+            try
             {
-                using (var transaction = session.BeginTransaction())
+                using (var session = NHibernateHelper.OpenSession())
                 {
-                    session.Delete(entity);
-                    transaction.Commit();
+                    using (var transaction = session.BeginTransaction())
+                    {
+                        session.Delete(entity);
+                        transaction.Commit();
+                    }
                 }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
-        public void Save(T entity)
+        public bool Save(T entity)
         {
-            using (var session = NHibernateHelper.OpenSession())
+            try
             {
-                using (var transaction = session.BeginTransaction())
+                using (var session = NHibernateHelper.OpenSession())
                 {
-                    session.Save(entity);
-                    transaction.Commit();
+                    using (var transaction = session.BeginTransaction())
+                    {
+                        session.Save(entity);
+                        transaction.Commit();
+                    }
                 }
+
+                return true;
             }
+            catch (Exception)
+            {
+                return false;
+            }
+            
         }
 
-        public void Update(T entity)
+        public bool Update(T entity)
         {
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                using (var transaction = session.BeginTransaction())
+            try { 
+                using (var session = NHibernateHelper.OpenSession())
                 {
-                    session.Update(entity);
-                    transaction.Commit();
+                    using (var transaction = session.BeginTransaction())
+                    {
+                        session.Update(entity);
+                        transaction.Commit();
+                    }
                 }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

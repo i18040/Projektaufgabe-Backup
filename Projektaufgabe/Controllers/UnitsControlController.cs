@@ -28,13 +28,17 @@ namespace Projektaufgabe.Controllers
         public void New()
         {
             var unit = MainWindowController.serviceClient.NewBusinessUnit(mViewModel.Name, mViewModel.Description);
-            mViewModel.BusinessUnits.Add(unit);
+            if(unit != null)
+                mViewModel.BusinessUnits.Add(unit);
         }
 
         public void Delete()
         {
-            MainWindowController.serviceClient.DeleteBusinessUnit(mViewModel.SelectedUnit.Name);
-            mViewModel.BusinessUnits.Remove(mViewModel.SelectedUnit);
+            if (mViewModel.SelectedUnit != null)
+            {
+                MainWindowController.serviceClient.DeleteBusinessUnit(mViewModel.SelectedUnit.Name);
+                mViewModel.BusinessUnits.Remove(mViewModel.SelectedUnit);
+            }
         }
         public override ViewModelBase Initialize()
         {

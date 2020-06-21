@@ -11,8 +11,8 @@ namespace Projektaufgabe_WCF.Mappings
             Id(x => x.Id);
             Map(x => x.StartDate).Not.Nullable();
             Map(x => x.EndDate).Nullable();
-            References<Vehicle>(x => x.VehicleId).Not.Nullable();
-            References<Employee>(x => x.EmployeeId).Not.Nullable();
+            Map(x => x.VehicleId).Not.Nullable();
+            Map(x => x.EmployeeId).Not.Nullable();
         }
     }
 }

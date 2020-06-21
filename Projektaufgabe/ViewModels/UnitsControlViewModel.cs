@@ -24,7 +24,7 @@ namespace Projektaufgabe.ViewModels
             {
                 if (selectedUnit == value) return;
                 selectedUnit = value;
-                UnitInfo = selectedUnit.Name;
+                UnitInfo = selectedUnit.Name + " " + selectedUnit.Description;
                 NotifyPropertyChanged();
             }
         }

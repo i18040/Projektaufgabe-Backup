@@ -105,4 +105,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MonthlyCost" nillable="true" type="tns:MonthlyCost" />
+  <xs:complexType name="ArrayOfMonthlyBusinessUnitCost">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MonthlyBusinessUnitCost" nillable="true" type="tns:MonthlyBusinessUnitCost" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMonthlyBusinessUnitCost" nillable="true" type="tns:ArrayOfMonthlyBusinessUnitCost" />
+  <xs:complexType name="MonthlyBusinessUnitCost">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessUnitName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Month" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MonthlyBusinessUnitCost" nillable="true" type="tns:MonthlyBusinessUnitCost" />
 </xs:schema>

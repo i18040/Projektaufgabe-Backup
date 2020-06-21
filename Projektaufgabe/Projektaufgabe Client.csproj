@@ -89,6 +89,8 @@
     <Compile Include="Controllers\AddEmployeeToVehicleController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\ConfirmRemovalController.cs" />
+    <Compile Include="Controllers\CostMonthControlController.cs" />
+    <Compile Include="Controllers\CostUnitMonthControlController.cs" />
     <Compile Include="Controllers\EmployeesControlController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainWindowController.cs" />
@@ -104,6 +106,8 @@
     <Compile Include="ViewModels\AddEmployeeToVehicleViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\ConfirmRemovalViewModel.cs" />
+    <Compile Include="ViewModels\CostMonthControlViewModel.cs" />
+    <Compile Include="ViewModels\CostUnitMonthControlViewModel.cs" />
     <Compile Include="ViewModels\EmployeesControlViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -239,6 +243,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference1\Projektaufgabe.ServiceReference1.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\Projektaufgabe.ServiceReference1.MonthlyBusinessUnitCost.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference1\Projektaufgabe.ServiceReference1.MonthlyCost.datasource">

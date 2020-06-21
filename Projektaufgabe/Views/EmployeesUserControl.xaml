@@ -19,9 +19,9 @@
             <TextBlock Margin="5,3,0,0"  FontSize="18">Mitarbeiter verwalten</TextBlock>
         </StackPanel>
         <ListView Grid.Row="1" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" HorizontalAlignment="Stretch" VerticalContentAlignment="Top"  
-                  ScrollViewer.VerticalScrollBarVisibility="Visible">
-            <ListView.Resources>
-                <GridView x:Key="Username">
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
+            <ListView.View>
+                <GridView>
                     <GridViewColumn Header="Nr.">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -44,7 +44,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
-            </ListView.Resources>
+            </ListView.View>
         </ListView>
         <StackPanel Grid.Row="2">
             <Line xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

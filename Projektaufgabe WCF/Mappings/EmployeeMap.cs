@@ -14,7 +14,7 @@ namespace Projektaufgabe_WCF.Mappings
             Map(x => x.EmployeeNumber).Unique().Not.Nullable();
             Map(x => x.Salutation).Length(50).Nullable();
             Map(x => x.Title).Length(50).Nullable();
-            References<BusinessUnit>(x => x.BusinessUnitId).Not.Nullable();
+            Map(x => x.BusinessUnitId).Not.Nullable();
             Map(x => x.Version).Not.Nullable();
         }
     }

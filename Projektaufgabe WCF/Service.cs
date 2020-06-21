@@ -182,6 +182,68 @@ namespace Projektaufgabe_WCF
             return monthlyCosts;
         }
 
+        public List<MonthlyBusinessUnitCost> GetMonthlyBusinessUnitCosts()
+        {
+            var vehicles = mVehicleRepository.GetAll();
+            var businessUnits = mBusinessUnitRepository.GetAll();
+            var employees = mEmployeeRepository.GetAll();
+            var vehicleToEmployees = mVehicleToEmployeeRelationRepository.GetAll();
+            var leasingFromQuery =
+                from vcl in vehicles
+                join vclemp in vehicleToEmployees on vcl.Id equals vclemp.VehicleId
+                join emp in employees on vclemp.EmployeeId equals emp.Id
+                join bu in businessUnits on emp.BusinessUnitId equals bu.Id
+                group vcl by vcl.LeasingFrom
+                into g
+                select g.Key;
+            var leasingToQuery =
+                from vcl in vehicles
+                group vcl by vcl.LeasingTo
+                into g
+                select g.Key;
+            var monthlyBusinessUnitCosts = new List<MonthlyBusinessUnitCost>();
+            foreach (var month in leasingToQuery)
+            {
+                var monthlyBusinessUnitCost = new MonthlyBusinessUnitCost()
+                {
+                    Month = month
+                };
+                var countQuery =
+                    from vcl in vehicles
+                    where vcl.LeasingFrom <= month || vcl.LeasingTo >= month
+                    select vcl;
+                monthlyBusinessUnitCost.Cost = 0;
+                foreach (var entry in countQuery)
+                {
+                    monthlyBusinessUnitCost.Cost += entry.LeasingRate + entry.Insurance / 12;
+                }
+
+                monthlyBusinessUnitCosts.Add(monthlyBusinessUnitCost);
+                foreach (var otherMonth in leasingFromQuery)
+                {
+                    if (month == otherMonth) continue;
+                    var otherMonthlyBusinessUnitCost = new MonthlyBusinessUnitCost()
+                    {
+                        Month = otherMonth
+                    };
+                    var otherCountQuery =
+                        from vcl in vehicles
+                        where vcl.LeasingFrom <= month || vcl.LeasingTo >= month
+                        select vcl;
+                    monthlyBusinessUnitCost.Cost = 0;
+                    foreach (var entry in otherCountQuery)
+                    {
+                        monthlyBusinessUnitCost.Cost += entry.LeasingRate;
+                        monthlyBusinessUnitCost.Cost += entry.Insurance / 12;
+                    }
+
+                    monthlyBusinessUnitCosts.Add(otherMonthlyBusinessUnitCost);
+                }
+            }
+
+            return monthlyBusinessUnitCosts;
+        }
+
         #endregion
 
         #region DBManipulation

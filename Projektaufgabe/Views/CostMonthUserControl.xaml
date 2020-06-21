@@ -7,7 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="8*"/>
@@ -16,9 +16,9 @@
             <TextBlock Text="Kosten/Monat" FontSize="14" FontWeight="Bold"/>
         </StackPanel>
         <ListView Margin="5,0,5,5" Grid.Row="1" ItemsSource="{Binding CostPerMonth}" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  ScrollViewer.CanContentScroll="False">>
-            <ListView.Resources>
-                <GridView x:Key="one">
+                  ScrollViewer.CanContentScroll="False">
+            <ListView.View>
+                <GridView>
                     <GridViewColumn Header="Monat">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -41,7 +41,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
-            </ListView.Resources>
+            </ListView.View>
         </ListView>
     </Grid>
 </UserControl>

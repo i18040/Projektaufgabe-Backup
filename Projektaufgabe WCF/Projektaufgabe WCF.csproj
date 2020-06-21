@@ -205,6 +205,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Framework\NHibernateHelper.cs" />
     <Compile Include="Framework\Repository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Mappings\BusinessUnitMap.cs" />
     <Compile Include="Mappings\EmployeeMap.cs" />

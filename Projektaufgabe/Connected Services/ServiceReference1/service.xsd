@@ -104,6 +104,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetMonthlyBusinessUnitCosts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMonthlyBusinessUnitCostsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="GetMonthlyBusinessUnitCostsResult" nillable="true" type="q9:ArrayOfMonthlyBusinessUnitCost" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ChangePassword">
     <xs:complexType>
       <xs:sequence>
@@ -133,7 +145,7 @@
   <xs:element name="NewUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewUserResult" nillable="true" type="q9:User" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewUserResult" nillable="true" type="q10:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -180,7 +192,7 @@
   <xs:element name="NewBusinessUnitResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewBusinessUnitResult" nillable="true" type="q10:BusinessUnit" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewBusinessUnitResult" nillable="true" type="q11:BusinessUnit" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -229,7 +241,7 @@
   <xs:element name="NewEmployeeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewEmployeeResult" nillable="true" type="q11:Employee" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewEmployeeResult" nillable="true" type="q12:Employee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -283,7 +295,7 @@
   <xs:element name="NewVehicleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewVehicleResult" nillable="true" type="q12:Vehicle" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewVehicleResult" nillable="true" type="q13:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -335,7 +347,7 @@
   <xs:element name="NewVehicle2EmployeeRelationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewVehicle2EmployeeRelationResult" nillable="true" type="q13:VehicleToEmployeeRelation" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewVehicle2EmployeeRelationResult" nillable="true" type="q14:VehicleToEmployeeRelation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
