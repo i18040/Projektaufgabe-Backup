@@ -4,9 +4,8 @@ using System.Runtime.Serialization;
 namespace Projektaufgabe_WCF
 {
     [DataContract]
-    public class Vehicle
+    public class Vehicle : hasVersion
     {
-        [DataMember] public int Id { get; set; }
         [DataMember] public string LicensePlate { get; set; }
         [DataMember] public string Brand { get; set; }
         [DataMember] public string Model { get; set; }
@@ -14,6 +13,5 @@ namespace Projektaufgabe_WCF
         [DataMember] public DateTime LeasingFrom { get; set; }
         [DataMember] public DateTime LeasingTo { get; set; }
         [DataMember] public decimal LeasingRate { get; set; }
-        [DataMember] public int Version { get; set; }
     }
 }

@@ -3,11 +3,9 @@
 namespace Projektaufgabe_WCF
 {
     [DataContract]
-    public class BusinessUnit
+    public class BusinessUnit : hasVersion
     {
-        [DataMember] public int Id { get; set; }
         [DataMember] public string Name { get; set; }
         [DataMember] public string Description { get; set; }
-        [DataMember] public int Version { get; set; }
     }
 }

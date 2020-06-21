@@ -19,7 +19,7 @@ namespace Projektaufgabe.ViewModels
         private string firstname;
         private string lastname;
         private string title;
-        private string employeeNumber;
+        private int employeeNumber;
         private string salutation;
 
         public Employee SelectedEmployee
@@ -90,7 +90,7 @@ namespace Projektaufgabe.ViewModels
             }
         }
 
-        public string EmployeeNumber
+        public int EmployeeNumber
         {
             get => employeeNumber;
             set

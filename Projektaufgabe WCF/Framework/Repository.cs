@@ -4,7 +4,7 @@ using Projektaufgabe_WCF.Interfaces;
 
 namespace Projektaufgabe_WCF.Framework
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : hasVersion
     {
         public Repository(string databaseFile) => NHibernateHelper.DatabaseFile = databaseFile;
 
@@ -66,8 +66,20 @@ namespace Projektaufgabe_WCF.Framework
                 {
                     using (var transaction = session.BeginTransaction())
                     {
+                        T backupEntity = entity;
+                        entity.Version++;
                         session.Update(entity);
-                        transaction.Commit();
+                        List <T> all = GetAll();
+                        var hit = false;
+                        foreach (var thing in all)
+                        {
+                            if (thing.Version == backupEntity.Version && thing.Id == backupEntity.Id)
+                                hit = true;
+                        }
+                        if(hit)
+                            transaction.Commit();
+                        else
+                            transaction.Rollback();
                     }
                 }
                 return true;

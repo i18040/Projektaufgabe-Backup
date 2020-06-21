@@ -20,12 +20,16 @@ namespace Projektaufgabe.Controllers
         private UsersControlController usersControlController;
         private VehiclesControlController vehiclesControlController;
         private EmployeesControlController employeesControlController;
+        private CostMonthControlController costMonthControlController;
+        private CostUnitMonthControlController costUnitMonthControlController;
 
         private StartControlViewModel startControlViewModel;
         private UnitsControlViewModel unitsControlViewModel;
         private UsersControlViewModel usersControlViewModel;
         private VehiclesControlViewModel vehiclesControlViewModel;
         private EmployeesControlViewModel employeesControlViewModel;
+        private CostMonthControlViewModel costMonthControlViewModel;
+        private CostUnitMonthControlViewModel costUnitMonthControlViewModel;
 
         public static ServiceClient serviceClient = new ServiceClient();
         private MainWindowViewModel mViewModel;
@@ -37,8 +41,14 @@ namespace Projektaufgabe.Controllers
             startControlController = new StartControlController();
             mViewModel.ActiveViewModel = startControlController.Initialize();
             startControlViewModel = (StartControlViewModel) mViewModel.ActiveViewModel;
+            startControlController.CurrentUser = CurrentUser;
+            mViewModel.ButtonsEnabled = false;
             mViewModel.StartCurrentBackColor = new SolidColorBrush(Colors.DodgerBlue);
             mViewModel.StartCurrentForeColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.CostBusinessUnitCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostBusinessUnitCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.VehiclesCurrentBackColor = new SolidColorBrush(Colors.White);
             mViewModel.VehiclesCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.EmployeeCurrentBackColor = new SolidColorBrush(Colors.White);
@@ -50,19 +60,58 @@ namespace Projektaufgabe.Controllers
         }
         public void ExecuteCostMonthCommand(object obj)
         {
-
+            costMonthControlController = new CostMonthControlController();
+            mViewModel.ActiveViewModel = costMonthControlController.Initialize();
+            costMonthControlViewModel = (CostMonthControlViewModel)mViewModel.ActiveViewModel;
+            mViewModel.ButtonsEnabled = false;
+            mViewModel.StartCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.StartCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.CostMonthCurrentBackColor = new SolidColorBrush(Colors.DodgerBlue);
+            mViewModel.CostMonthCurrentForeColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostBusinessUnitCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostBusinessUnitCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.VehiclesCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.VehiclesCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.EmployeeCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.EmployeeCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.BusinessUnitCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.BusinessUnitCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.UserCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.UserCurrentForeColor = new SolidColorBrush(Colors.Black);
         }
         public void ExecuteCostUnitCommand(object obj)
         {
-
+            costUnitMonthControlController = new CostUnitMonthControlController();
+            mViewModel.ActiveViewModel = costUnitMonthControlController.Initialize();
+            costUnitMonthControlViewModel = (CostUnitMonthControlViewModel)mViewModel.ActiveViewModel;
+            mViewModel.ButtonsEnabled = false;
+            mViewModel.StartCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.StartCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.CostMonthCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.CostBusinessUnitCurrentBackColor = new SolidColorBrush(Colors.DodgerBlue);
+            mViewModel.CostBusinessUnitCurrentForeColor = new SolidColorBrush(Colors.White);
+            mViewModel.VehiclesCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.VehiclesCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.EmployeeCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.EmployeeCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.BusinessUnitCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.BusinessUnitCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.UserCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.UserCurrentForeColor = new SolidColorBrush(Colors.Black);
         }
         public void ExecuteVehiclesCommand(object obj)
         {
             vehiclesControlController = new VehiclesControlController();
             mViewModel.ActiveViewModel = vehiclesControlController.Initialize();
             vehiclesControlViewModel = (VehiclesControlViewModel)mViewModel.ActiveViewModel;
+            mViewModel.ButtonsEnabled = true;
             mViewModel.VehiclesCurrentBackColor = new SolidColorBrush(Colors.DodgerBlue);
             mViewModel.VehiclesCurrentForeColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.CostBusinessUnitCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostBusinessUnitCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.StartCurrentBackColor = new SolidColorBrush(Colors.White);
             mViewModel.StartCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.EmployeeCurrentBackColor = new SolidColorBrush(Colors.White);
@@ -77,8 +126,13 @@ namespace Projektaufgabe.Controllers
             employeesControlController = new EmployeesControlController();
             mViewModel.ActiveViewModel = employeesControlController.Initialize();
             employeesControlViewModel = (EmployeesControlViewModel)mViewModel.ActiveViewModel;
+            mViewModel.ButtonsEnabled = true;
             mViewModel.EmployeeCurrentBackColor = new SolidColorBrush(Colors.DodgerBlue);
             mViewModel.EmployeeCurrentForeColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.CostBusinessUnitCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostBusinessUnitCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.StartCurrentBackColor = new SolidColorBrush(Colors.White);
             mViewModel.StartCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.VehiclesCurrentBackColor = new SolidColorBrush(Colors.White);
@@ -93,8 +147,13 @@ namespace Projektaufgabe.Controllers
             unitsControlController = new UnitsControlController();
             mViewModel.ActiveViewModel = unitsControlController.Initialize();
             unitsControlViewModel = (UnitsControlViewModel)mViewModel.ActiveViewModel;
+            mViewModel.ButtonsEnabled = true;
             mViewModel.BusinessUnitCurrentBackColor = new SolidColorBrush(Colors.DodgerBlue);
             mViewModel.BusinessUnitCurrentForeColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.CostBusinessUnitCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostBusinessUnitCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.StartCurrentBackColor = new SolidColorBrush(Colors.White);
             mViewModel.StartCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.VehiclesCurrentBackColor = new SolidColorBrush(Colors.White);
@@ -109,8 +168,13 @@ namespace Projektaufgabe.Controllers
             usersControlController = new UsersControlController();
             mViewModel.ActiveViewModel = usersControlController.Initialize();
             usersControlViewModel = (UsersControlViewModel)mViewModel.ActiveViewModel;
+            mViewModel.ButtonsEnabled = true;
             mViewModel.UserCurrentBackColor = new SolidColorBrush(Colors.DodgerBlue);
             mViewModel.UserCurrentForeColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostMonthCurrentForeColor = new SolidColorBrush(Colors.Black);
+            mViewModel.CostBusinessUnitCurrentBackColor = new SolidColorBrush(Colors.White);
+            mViewModel.CostBusinessUnitCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.StartCurrentBackColor = new SolidColorBrush(Colors.White);
             mViewModel.StartCurrentForeColor = new SolidColorBrush(Colors.Black);
             mViewModel.VehiclesCurrentBackColor = new SolidColorBrush(Colors.White);

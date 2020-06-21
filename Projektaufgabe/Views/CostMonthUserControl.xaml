@@ -9,34 +9,34 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <StackPanel Background="LightGray" Margin="5,5,5,0" Grid.Row="0">
-            <TextBlock Text="Kosten/Monat" FontSize="14" FontWeight="Bold"/>
+        <StackPanel VerticalAlignment="Stretch" Background="LightGray" Grid.Row="0">
+            <TextBlock Margin="5,3,0,0" Text="Kosten/Monat" FontSize="18" FontWeight="Bold"/>
         </StackPanel>
-        <ListView Margin="5,0,5,5" Grid.Row="1" ItemsSource="{Binding CostPerMonth}" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible"
+        <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding CostPerMonth}" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ScrollViewer.CanContentScroll="False">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Monat">
+                    <GridViewColumn Header="Mitarbeiter">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="5" HorizontalAlignment="Left" Text="{Binding Month}"></TextBlock>
+                                <TextBlock Margin="5" HorizontalAlignment="Center" Text="{Binding Month}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Anzahl">
+                    <GridViewColumn Header="Beginn">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="5" HorizontalAlignment="Center" Text="{Binding Count}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Kosten">
+                    <GridViewColumn Header="Ende">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="5" HorizontalAlignment="Right" Text="{Binding Cost}"></TextBlock>
+                                <TextBlock Margin="5" HorizontalAlignment="Center" Text="{Binding Cost}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

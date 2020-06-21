@@ -330,7 +330,7 @@
   <xs:element name="UpdateVehicleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateVehicleResult" type="xs:boolean" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="UpdateVehicleResult" nillable="true" type="q14:Vehicle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -347,7 +347,7 @@
   <xs:element name="NewVehicle2EmployeeRelationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewVehicle2EmployeeRelationResult" nillable="true" type="q14:VehicleToEmployeeRelation" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" minOccurs="0" name="NewVehicle2EmployeeRelationResult" nillable="true" type="q15:VehicleToEmployeeRelation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

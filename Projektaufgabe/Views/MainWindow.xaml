@@ -37,19 +37,19 @@
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
                 <Button Background="DodgerBlue" Grid.Column="0" Grid.Row="1" Margin="10,0,10,0"
-                        Command="{Binding NewItemCommand}">
+                        Command="{Binding NewItemCommand}" IsEnabled="{Binding ButtonsEnabled}">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                         <Image Margin="2" Width="15" Source="../res/file.png"></Image>
                         <TextBlock Foreground="White" Text="Neu"></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Background="DodgerBlue" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0" Command="{Binding SaveItemCommand}">
+                <Button Background="DodgerBlue" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0" Command="{Binding SaveItemCommand}" IsEnabled="{Binding ButtonsEnabled}">
                     <StackPanel Orientation="Horizontal">
                         <Image Margin="2" Width="15" Source="../res/save.png"></Image>
                         <TextBlock Foreground="White" Text="Speichern"></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Background="DodgerBlue" Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" Command="{Binding DeleteItemCommand}">
+                <Button Background="DodgerBlue" Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" Command="{Binding DeleteItemCommand}" IsEnabled="{Binding ButtonsEnabled}">
                     <StackPanel Orientation="Horizontal">
                         <Image Margin="2" Width="15" Source="../res/trash-can.png"></Image>
                         <TextBlock Foreground="White" Text="Löschen"></TextBlock>
@@ -101,6 +101,12 @@
                 <ContentControl.Resources>
                     <DataTemplate x:Key="startViewTemplate">
                         <views:StartUserControl />
+                    </DataTemplate>
+                    <DataTemplate x:Key="costMonthViewTemplate">
+                        <views:CostMonthUserControl />
+                    </DataTemplate>
+                    <DataTemplate x:Key="costUnitMonthViewTemplate">
+                        <views:CostUnitUserControl />
                     </DataTemplate>
                     <DataTemplate x:Key="vehiclesViewTemplate">
                         <views:VehiclesUserControl />

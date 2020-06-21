@@ -75,7 +75,7 @@ namespace Projektaufgabe_WCF
         bool DeleteVehicle(string licensePlate);
 
         [OperationContract]
-        bool UpdateVehicle(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance,
+        Vehicle UpdateVehicle(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance,
             DateTime leasingFrom, DateTime leasingTo, decimal leasingRate);
 
         [OperationContract]

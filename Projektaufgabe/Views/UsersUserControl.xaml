@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Margin="10" Grid.Column="1">
+    <Grid Margin="10" >
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="1*"/>
@@ -17,7 +17,7 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" VerticalAlignment="Stretch" Background="LightGray">
-            <TextBlock Margin="5,3,0,0"  FontSize="18">Benutzer verwalten</TextBlock>
+            <TextBlock Margin="5,3,0,0" FontSize="18" FontWeight="Bold">Benutzer verwalten</TextBlock>
         </StackPanel>
         <ListView Grid.Row="1" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" HorizontalAlignment="Stretch" VerticalContentAlignment="Top"  
                   ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">

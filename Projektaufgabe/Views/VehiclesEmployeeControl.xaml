@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projektaufgabe.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="5">
@@ -29,8 +30,8 @@
             </Button>
         </Grid>
         <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding EmployeesOfVehicle}" SelectedItem="{Binding SelectedEmployee}" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  ScrollViewer.CanContentScroll="False">>
-            <ListView>
+                  ScrollViewer.CanContentScroll="False">
+            <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Mitarbeiter">
                         <GridViewColumn.CellTemplate>
@@ -54,7 +55,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
-            </ListView>
+            </ListView.View>
         </ListView>
     </Grid>
 </UserControl>

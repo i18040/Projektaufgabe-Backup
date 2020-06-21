@@ -41,6 +41,7 @@ namespace Projektaufgabe.ViewModels
         private Brush userCurrentForeColor = new SolidColorBrush(Colors.Black);
         private Brush userCurrentBackColor = new SolidColorBrush(Colors.White);
         private Visibility visibility;
+        private bool buttonsEnabled;
 
         public ViewModelBase ActiveViewModel
         {
@@ -185,6 +186,16 @@ namespace Projektaufgabe.ViewModels
             set
             {
                 visibility = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public bool ButtonsEnabled
+        {
+            get => buttonsEnabled;
+            set
+            {
+                buttonsEnabled = value;
                 NotifyPropertyChanged();
             }
         }

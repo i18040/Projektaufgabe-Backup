@@ -1,17 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="User">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Version" type="xs:int" />
-      <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:hasVersion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="hasVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="hasVersion" nillable="true" type="tns:hasVersion" />
   <xs:complexType name="ArrayOfUser">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
@@ -25,12 +34,14 @@
   </xs:complexType>
   <xs:element name="ArrayOfBusinessUnit" nillable="true" type="tns:ArrayOfBusinessUnit" />
   <xs:complexType name="BusinessUnit">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Version" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:hasVersion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="BusinessUnit" nillable="true" type="tns:BusinessUnit" />
   <xs:complexType name="ArrayOfEmployee">
@@ -40,18 +51,20 @@
   </xs:complexType>
   <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
   <xs:complexType name="Employee">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="BusinessUnit" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BusinessUnitId" type="xs:int" />
-      <xs:element minOccurs="0" name="EmployeeNumber" type="xs:int" />
-      <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Fullname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Salutation" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Version" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:hasVersion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BusinessUnit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BusinessUnitId" type="xs:int" />
+          <xs:element minOccurs="0" name="EmployeeNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fullname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Salutation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Employee" nillable="true" type="tns:Employee" />
   <xs:complexType name="ArrayOfVehicle">
@@ -61,17 +74,19 @@
   </xs:complexType>
   <xs:element name="ArrayOfVehicle" nillable="true" type="tns:ArrayOfVehicle" />
   <xs:complexType name="Vehicle">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Insurance" type="xs:decimal" />
-      <xs:element minOccurs="0" name="LeasingFrom" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="LeasingRate" type="xs:decimal" />
-      <xs:element minOccurs="0" name="LeasingTo" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="LicensePlate" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Version" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:hasVersion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Insurance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeasingFrom" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LeasingRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeasingTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LicensePlate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Vehicle" nillable="true" type="tns:Vehicle" />
   <xs:complexType name="ArrayOfVehicleToEmployeeRelation">
@@ -81,14 +96,17 @@
   </xs:complexType>
   <xs:element name="ArrayOfVehicleToEmployeeRelation" nillable="true" type="tns:ArrayOfVehicleToEmployeeRelation" />
   <xs:complexType name="VehicleToEmployeeRelation">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
-      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Fullname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="VehicleId" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:hasVersion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Fullname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="VehicleId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="VehicleToEmployeeRelation" nillable="true" type="tns:VehicleToEmployeeRelation" />
   <xs:complexType name="ArrayOfMonthlyCost">

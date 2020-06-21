@@ -15,33 +15,23 @@ namespace Projektaufgabe.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="hasVersion", Namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF")]
     [System.SerializableAttribute()]
-    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Projektaufgabe.ServiceReference1.BusinessUnit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Projektaufgabe.ServiceReference1.Employee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Projektaufgabe.ServiceReference1.Vehicle))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Projektaufgabe.ServiceReference1.VehicleToEmployeeRelation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Projektaufgabe.ServiceReference1.User))]
+    public partial class hasVersion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirstnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LastnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UsernameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int VersionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool isAdminField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -50,19 +40,6 @@ namespace Projektaufgabe.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Firstname {
-            get {
-                return this.FirstnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FirstnameField, value) != true)) {
-                    this.FirstnameField = value;
-                    this.RaisePropertyChanged("Firstname");
-                }
             }
         }
         
@@ -80,45 +57,6 @@ namespace Projektaufgabe.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Lastname {
-            get {
-                return this.LastnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LastnameField, value) != true)) {
-                    this.LastnameField = value;
-                    this.RaisePropertyChanged("Lastname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Username {
-            get {
-                return this.UsernameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
-                    this.UsernameField = value;
-                    this.RaisePropertyChanged("Username");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Version {
             get {
                 return this.VersionField;
@@ -127,19 +65,6 @@ namespace Projektaufgabe.ServiceReference1 {
                 if ((this.VersionField.Equals(value) != true)) {
                     this.VersionField = value;
                     this.RaisePropertyChanged("Version");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool isAdmin {
-            get {
-                return this.isAdminField;
-            }
-            set {
-                if ((this.isAdminField.Equals(value) != true)) {
-                    this.isAdminField = value;
-                    this.RaisePropertyChanged("isAdmin");
                 }
             }
         }
@@ -158,32 +83,13 @@ namespace Projektaufgabe.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BusinessUnit", Namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF")]
     [System.SerializableAttribute()]
-    public partial class BusinessUnit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class BusinessUnit : Projektaufgabe.ServiceReference1.hasVersion {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VersionField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description {
@@ -194,19 +100,6 @@ namespace Projektaufgabe.ServiceReference1 {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -223,38 +116,13 @@ namespace Projektaufgabe.ServiceReference1 {
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Version {
-            get {
-                return this.VersionField;
-            }
-            set {
-                if ((this.VersionField.Equals(value) != true)) {
-                    this.VersionField = value;
-                    this.RaisePropertyChanged("Version");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF")]
     [System.SerializableAttribute()]
-    public partial class Employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class Employee : Projektaufgabe.ServiceReference1.hasVersion {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BusinessUnitField;
@@ -272,9 +140,6 @@ namespace Projektaufgabe.ServiceReference1 {
         private string FullnameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastnameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -282,19 +147,6 @@ namespace Projektaufgabe.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VersionField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BusinessUnit {
@@ -362,19 +214,6 @@ namespace Projektaufgabe.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Lastname {
             get {
                 return this.LastnameField;
@@ -412,44 +251,16 @@ namespace Projektaufgabe.ServiceReference1 {
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Version {
-            get {
-                return this.VersionField;
-            }
-            set {
-                if ((this.VersionField.Equals(value) != true)) {
-                    this.VersionField = value;
-                    this.RaisePropertyChanged("Version");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Vehicle", Namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF")]
     [System.SerializableAttribute()]
-    public partial class Vehicle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class Vehicle : Projektaufgabe.ServiceReference1.hasVersion {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BrandField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal InsuranceField;
@@ -469,19 +280,6 @@ namespace Projektaufgabe.ServiceReference1 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ModelField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VersionField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Brand {
             get {
@@ -491,19 +289,6 @@ namespace Projektaufgabe.ServiceReference1 {
                 if ((object.ReferenceEquals(this.BrandField, value) != true)) {
                     this.BrandField = value;
                     this.RaisePropertyChanged("Brand");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -585,38 +370,13 @@ namespace Projektaufgabe.ServiceReference1 {
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Version {
-            get {
-                return this.VersionField;
-            }
-            set {
-                if ((this.VersionField.Equals(value) != true)) {
-                    this.VersionField = value;
-                    this.RaisePropertyChanged("Version");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VehicleToEmployeeRelation", Namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF")]
     [System.SerializableAttribute()]
-    public partial class VehicleToEmployeeRelation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class VehicleToEmployeeRelation : Projektaufgabe.ServiceReference1.hasVersion {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int EmployeeIdField;
@@ -628,23 +388,10 @@ namespace Projektaufgabe.ServiceReference1 {
         private string FullnameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int VehicleIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int EmployeeId {
@@ -686,19 +433,6 @@ namespace Projektaufgabe.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime StartDate {
             get {
                 return this.StartDateField;
@@ -723,13 +457,91 @@ namespace Projektaufgabe.ServiceReference1 {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Projektaufgabe_WCF")]
+    [System.SerializableAttribute()]
+    public partial class User : Projektaufgabe.ServiceReference1.hasVersion {
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstnameField;
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool isAdminField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Firstname {
+            get {
+                return this.FirstnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstnameField, value) != true)) {
+                    this.FirstnameField = value;
+                    this.RaisePropertyChanged("Firstname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Lastname {
+            get {
+                return this.LastnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastnameField, value) != true)) {
+                    this.LastnameField = value;
+                    this.RaisePropertyChanged("Lastname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool isAdmin {
+            get {
+                return this.isAdminField;
+            }
+            set {
+                if ((this.isAdminField.Equals(value) != true)) {
+                    this.isAdminField = value;
+                    this.RaisePropertyChanged("isAdmin");
+                }
             }
         }
     }
@@ -1019,10 +831,10 @@ namespace Projektaufgabe.ServiceReference1 {
         System.Threading.Tasks.Task<bool> DeleteVehicleAsync(string licensePlate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateVehicle", ReplyAction="http://tempuri.org/IService/UpdateVehicleResponse")]
-        bool UpdateVehicle(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance, System.DateTime leasingFrom, System.DateTime leasingTo, decimal leasingRate);
+        Projektaufgabe.ServiceReference1.Vehicle UpdateVehicle(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance, System.DateTime leasingFrom, System.DateTime leasingTo, decimal leasingRate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateVehicle", ReplyAction="http://tempuri.org/IService/UpdateVehicleResponse")]
-        System.Threading.Tasks.Task<bool> UpdateVehicleAsync(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance, System.DateTime leasingFrom, System.DateTime leasingTo, decimal leasingRate);
+        System.Threading.Tasks.Task<Projektaufgabe.ServiceReference1.Vehicle> UpdateVehicleAsync(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance, System.DateTime leasingFrom, System.DateTime leasingTo, decimal leasingRate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/NewVehicle2EmployeeRelation", ReplyAction="http://tempuri.org/IService/NewVehicle2EmployeeRelationResponse")]
         Projektaufgabe.ServiceReference1.VehicleToEmployeeRelation NewVehicle2EmployeeRelation(System.DateTime startDate, System.DateTime endDate, string licensePlate, int employeeNumber);
@@ -1232,11 +1044,11 @@ namespace Projektaufgabe.ServiceReference1 {
             return base.Channel.DeleteVehicleAsync(licensePlate);
         }
         
-        public bool UpdateVehicle(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance, System.DateTime leasingFrom, System.DateTime leasingTo, decimal leasingRate) {
+        public Projektaufgabe.ServiceReference1.Vehicle UpdateVehicle(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance, System.DateTime leasingFrom, System.DateTime leasingTo, decimal leasingRate) {
             return base.Channel.UpdateVehicle(licensePlate, newLicensePlate, brand, model, insurance, leasingFrom, leasingTo, leasingRate);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateVehicleAsync(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance, System.DateTime leasingFrom, System.DateTime leasingTo, decimal leasingRate) {
+        public System.Threading.Tasks.Task<Projektaufgabe.ServiceReference1.Vehicle> UpdateVehicleAsync(string licensePlate, string newLicensePlate, string brand, string model, decimal insurance, System.DateTime leasingFrom, System.DateTime leasingTo, decimal leasingRate) {
             return base.Channel.UpdateVehicleAsync(licensePlate, newLicensePlate, brand, model, insurance, leasingFrom, leasingTo, leasingRate);
         }
         

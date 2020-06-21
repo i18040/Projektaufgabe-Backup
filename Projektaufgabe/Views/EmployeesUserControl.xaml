@@ -16,7 +16,7 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" VerticalAlignment="Stretch" Background="LightGray">
-            <TextBlock Margin="5,3,0,0"  FontSize="18">Mitarbeiter verwalten</TextBlock>
+            <TextBlock Margin="5,3,0,0"  FontWeight="Bold" FontSize="18">Mitarbeiter verwalten</TextBlock>
         </StackPanel>
         <ListView Grid.Row="1" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" HorizontalAlignment="Stretch" VerticalContentAlignment="Top"  
                   ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">

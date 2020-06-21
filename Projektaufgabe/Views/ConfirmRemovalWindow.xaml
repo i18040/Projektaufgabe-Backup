@@ -18,10 +18,10 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Button Foreground="White" Background="DodgerBlue" Margin="10" Grid.Column="0" FontSize="14" FontWeight="Bold" Command="{Binding OkCommand}">Entfernen bestätigen</Button>
-            <Button Foreground="White" Background="DodgerBlue" Margin="10" Grid.Column="1" FontSize="14" FontWeight="Bold" Command="{Binding CancelCommand}">Abbrechen</Button>
+            <Button Foreground="White" Background="DodgerBlue" Margin="10" Grid.Column="0" FontSize="12" FontWeight="Bold" Command="{Binding OkCommand}">Entfernen bestätigen</Button>
+            <Button Foreground="White" Background="DodgerBlue" Margin="10" Grid.Column="1" FontSize="12" FontWeight="Bold" Command="{Binding CancelCommand}">Abbrechen</Button>
         </Grid>
     </Grid>
 </Window>

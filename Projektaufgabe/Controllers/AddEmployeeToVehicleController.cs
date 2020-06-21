@@ -14,10 +14,14 @@ namespace Projektaufgabe.Controllers
     class AddEmployeeToVehicleController
     {
         private AddEmployeeToVehicleWindow mView;
+        private AddEmployeeToVehicleViewModel mViewModel;
         public void ExecuteOkCommand(object obj)
         {
-            mView.DialogResult = true;
-            mView.Close();
+            if(mViewModel.SelectedEmployee != null)
+            {
+                mView.DialogResult = true;
+                mView.Close();
+            }
         }
 
         public void ExecuteCancelCommand(object obj)
@@ -28,7 +32,7 @@ namespace Projektaufgabe.Controllers
 
         public VehicleToEmployeeRelation AddEmployee(string LicensePlate)
         {
-            var mViewModel = new AddEmployeeToVehicleViewModel()
+            mViewModel = new AddEmployeeToVehicleViewModel()
             {
                 OkCommand = new RelayCommand(ExecuteOkCommand),
                 CancelCommand = new RelayCommand(ExecuteCancelCommand)

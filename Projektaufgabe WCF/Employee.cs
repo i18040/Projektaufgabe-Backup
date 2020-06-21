@@ -3,9 +3,8 @@
 namespace Projektaufgabe_WCF
 {
     [DataContract]
-    public class Employee
+    public class Employee : hasVersion
     {
-        [DataMember] public int Id { get; set; }
         [DataMember] public string Firstname { get; set; }
         [DataMember] public string Lastname { get; set; }
         [DataMember] public int EmployeeNumber { get; set; }
@@ -19,6 +18,5 @@ namespace Projektaufgabe_WCF
         }
         [DataMember] public int BusinessUnitId { get; set; }
         [DataMember] public virtual string BusinessUnit { get; set; }
-        [DataMember] public int Version { get; set; }
     }
 }

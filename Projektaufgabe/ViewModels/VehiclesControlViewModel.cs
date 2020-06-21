@@ -12,13 +12,24 @@ namespace Projektaufgabe.ViewModels
 {
     class VehiclesControlViewModel : ViewModelBase
     {
-        public ObservableCollection<Vehicle> BusinessUnits { get; set; } = new ObservableCollection<Vehicle>();
+        public ObservableCollection<Vehicle> Vehicles { get; set; } = new ObservableCollection<Vehicle>();
         private Vehicle selectedVehicle;
         private ViewModelBase mActiveViewModel;
         private int selectedIndex;
         private string licensePlate;
         private string brand;
         private string model;
+        private bool buttonsEnabled;
+
+        public bool ButtonsEnabled
+        {
+            get => buttonsEnabled;
+            set
+            {
+                buttonsEnabled = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public Vehicle SelectedVehicle
         {
@@ -38,6 +49,7 @@ namespace Projektaufgabe.ViewModels
             {
                 if (selectedIndex == value) return;
                 selectedIndex = value;
+                ButtonsEnabled = value == 0;
                 NotifyPropertyChanged();
             }
         }

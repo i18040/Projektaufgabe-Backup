@@ -16,6 +16,10 @@ namespace Projektaufgabe.Views
             var contentControl = container as FrameworkElement;
             if (item is StartControlViewModel)
                 return contentControl.FindResource("startViewTemplate") as DataTemplate;
+            if (item is CostUnitMonthControlViewModel)
+                return contentControl.FindResource("costMonthViewTemplate") as DataTemplate;
+            if (item is CostMonthControlViewModel)
+                return contentControl.FindResource("costUnitMonthViewTemplate") as DataTemplate;
             if (item is VehiclesControlViewModel)
                 return contentControl.FindResource("vehiclesViewTemplate") as DataTemplate;
             if (item is UnitsControlViewModel)

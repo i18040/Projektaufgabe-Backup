@@ -500,7 +500,7 @@ namespace Projektaufgabe_WCF
             return true;
         }
 
-        public bool UpdateVehicle(string licensePlate, string newLicensePlate, string brand, string model,
+        public Vehicle UpdateVehicle(string licensePlate, string newLicensePlate, string brand, string model,
             decimal insurance, DateTime leasingFrom, DateTime leasingTo,
             decimal leasingRate) //TODO Optimistic Locking & UNIT TESTS
         {
@@ -509,7 +509,7 @@ namespace Projektaufgabe_WCF
                 from vcl in vehicles
                 where string.Equals(vcl.LicensePlate, licensePlate)
                 select vcl;
-            if (query.Count() != 1) return false;
+            if (query.Count() != 1) return null;
             foreach (var vcl in query)
             {
                 if (licensePlate != newLicensePlate)
@@ -521,9 +521,10 @@ namespace Projektaufgabe_WCF
                 vcl.LeasingTo = leasingTo;
                 vcl.LeasingRate = leasingRate;
                 mVehicleRepository.Update(vcl);
+                return vcl;
             }
 
-            return true;
+            return null;
         }
 
         #endregion

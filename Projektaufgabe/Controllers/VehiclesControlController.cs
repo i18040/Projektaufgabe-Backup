@@ -20,35 +20,28 @@ namespace Projektaufgabe.Controllers
 
         public void Save()
         {
-            
+            if (mViewModel.SelectedIndex == 0 && mViewModel.SelectedVehicle != null)
+            {
+                var vehicle = vehicleGeneralControlController.Save(mViewModel.SelectedVehicle);
+                mViewModel.SelectedVehicle = vehicle;
+            }
         }
 
         public void New()
         {
-
+            if (mViewModel.SelectedIndex == 0)
+            {
+                var vehicle = vehicleGeneralControlController.New();
+                mViewModel.Vehicles.Add(vehicle);
+            }
         }
 
         public void Delete()
         {
-
-        }
-
-        public void ExecuteSelectionChanged(object obj)
-        {
-            if (mViewModel.SelectedIndex == 0)
+            if (mViewModel.SelectedIndex == 0 && mViewModel.SelectedVehicle != null)
             {
-                vehicleGeneralControlController = new VehicleGeneralControlController();
-                mViewModel.ActiveViewModel = vehicleGeneralControlController.Initialize();
-                vehicleGeneralControlViewModel = (VehicleGeneralControlViewModel) mViewModel.ActiveViewModel;
-            }
-            else
-            {
-                vehicleEmployeeControlController = new VehicleEmployeeControlController()
-                {
-                    LicensePlate = mViewModel.SelectedVehicle.LicensePlate
-                };
-                mViewModel.ActiveViewModel = vehicleEmployeeControlController.Initialize();
-                vehicleEmployeeControlViewModel = (VehicleEmployeeControlViewModel) mViewModel.ActiveViewModel;
+                vehicleGeneralControlController.Delete(mViewModel.SelectedVehicle);
+                mViewModel.Vehicles.Remove(mViewModel.SelectedVehicle);
             }
         }
 
@@ -56,7 +49,7 @@ namespace Projektaufgabe.Controllers
         {
             mViewModel = new VehiclesControlViewModel()
             {
-                BusinessUnits = new ObservableCollection<Vehicle>(MainWindowController.serviceClient.GetVehicles())
+                Vehicles = new ObservableCollection<Vehicle>(MainWindowController.serviceClient.GetVehicles())
             };
             return mViewModel;
         }
